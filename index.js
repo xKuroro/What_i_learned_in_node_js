@@ -10,9 +10,10 @@ const { func } = require('joi');
 // create a folder
 // fs.mkdir(__dirname)
 app.use(express.json()); 
-app.use(() => {
-    console.log('Loading')
-})
+app.use((req, res, next) => {
+  console.log("Loading");
+  next();
+});
 app.set('view engine', 'ejs');
 const courses = [
     {id: 1, name: "course1"},
